@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Simulador de Psicologia Médica I | FAMED UFRGS & HCPA</title>
+  <meta name="title" content="Simulador de Psicologia Médica I | FAMED UFRGS & HCPA">
+  <meta name="description" content="Plataforma de autoavaliação e estudos práticos em Psicologia Médica baseada em casos clínicos anteriores. Privado e seguro.">
+  <meta name="author" content="Profa. Simone Hauck">
+  
+  <!-- Favicon & Stylesheet -->
+  <link rel="icon" type="image/jpg" href="famed_dome.jpg">
+  <link rel="stylesheet" href="styles.css?v=1.0.1">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- APPLICATION HEADER -->
+    <header class="app-header">
+      <a href="#" onclick="restartQuiz(); return false;" class="brand-wrapper">
+        <div class="brand-badge">
+          <!-- Neoclassic historical building facade image -->
+          <img src="famed_dome.jpg" alt="FAMED UFRGS">
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Psicologia Médica I</span>
+          <span class="brand-subtitle">MED 8005 · FAMED UFRGS · HCPA</span>
+        </div>
+      </a>
+    </header>
+
+    <!-- MAIN INTERACTIVE SPA AREA -->
+    <main class="app-content">
+
+      <!-- RESTORE SESSION BANNER -->
+      <div id="restore-session-banner" class="restore-banner" style="display: none;">
+        <div class="restore-banner-text">
+          <strong>💾 Sessão em andamento encontrada!</strong> Identificamos que você possui um simulado inacabado salvo localmente neste navegador. Deseja continuar de onde parou?
+        </div>
+        <div class="btn-group" style="display: flex; gap: 8px;">
+          <button class="btn btn-sm btn-primary" onclick="restoreSession()">Continuar Simulado</button>
+          <button class="btn class-btn-sm btn-secondary" onclick="dismissSession()">Iniciar Novo</button>
+        </div>
+      </div>
+
+      <!-- ==================== 1. WELCOME PAGE ==================== -->
+      <section id="welcome" class="page-section active">
+        <div class="paper-card" style="text-align: center;">
+          <div class="welcome-header">
+            <h2 class="section-title">Bem-vindo ao Assistente de Estudos Clínicos</h2>
+            <p class="section-subtitle">Preparação autônoma para avaliações baseada em cenários práticos reais da Psicologia Médica.</p>
+          </div>
+          
+          <div style="text-align: left; margin: var(--spacing-lg) 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 12px; color: var(--color-text-secondary);">
+            <p>Este simulador foi desenvolvido para auxiliar os alunos do 3º semestre da **FAMED/UFRGS** a exercitarem o raciocínio clínico-psicológico exigido nas avaliações regulares da disciplina.</p>
+            
+            <p><strong>Como funciona:</strong></p>
+            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li>📋 <strong>Sorteio Personalizado:</strong> Você escolhe os tópicos da matéria que deseja revisar e o número de questões.</li>
+              <li>✍️ <strong>Prontuário de Evolução:</strong> Redija suas condutas e respostas dissertativas em uma tela que simula uma folha de evolução clínica. Suas respostas são salvas automaticamente a cada caractere digitado.</li>
+              <li>🔍 <strong>Autoavaliação Imediata:</strong> Após responder, você pode revelar os critérios de correção esperados pela banca docente para autoavaliar suas respostas em tempo real.</li>
+              <li>💾 <strong>Privacidade Absoluta:</strong> Nenhum dado é enviado a servidores externos. Suas interações, histórico e respostas são armazenados estritamente na memória local do seu navegador, garantindo privacidade total nos seus estudos.</li>
+            </ul>
+          </div>
+          
+          <div style="margin-top: var(--spacing-lg);">
+            <button class="btn btn-primary" onclick="showPage('setup')">Iniciar Simulado Personalizado</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 2. CONFIGURATION PAGE ==================== -->
+      <section id="setup" class="page-section">
+        <div class="paper-card">
+          <h2 class="section-title" style="margin-bottom: var(--spacing-lg);">Configurar Meu Simulado</h2>
+          
+          <!-- Themes selector checkbox cards -->
+          <div class="config-group">
+            <label class="config-label">Selecione os Tópicos de Estudo</label>
+            <p style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 12px; margin-top: -6px;">Deixe em branco para sortear questões de todos os temas do banco.</p>
+            
+            <div class="theme-selector-grid">
+              <div class="theme-checkbox-card">
+                <input type="checkbox" name="theme" value="Modelos de Mente & Relação Médico-Paciente (Transferência, Defesas)" id="t1">
+                <div class="theme-card-content">
+                  <span class="theme-card-title">Modelos de Mente & Relação Médico-Paciente</span>
+                  <span class="theme-card-desc">Conceitos fundamentais da psicanálise aplicados à medicina: transferência, contratransferência e mecanismos de defesa de ego.</span>
+                </div>
+              </div>
+              
+              <div class="theme-checkbox-card">
+                <input type="checkbox" name="theme" value="Cognição, Emoção e Comportamento" id="t2">
+                <div class="theme-card-content">
+                  <span class="theme-card-title">Cognição, Emoção e Comportamento</span>
+                  <span class="theme-card-desc">Modelo cognitivo de TCC (Situação-Pensamento-Emoção-Comportamento) e estratégias de modificação de hábito.</span>
+                </div>
+              </div>
+              
+              <div class="theme-checkbox-card">
+                <input type="checkbox" name="theme" value="Ética Médica, Estudante e Direito de Imagem" id="t3">
+                <div class="theme-card-content">
+                  <span class="theme-card-title">Ética Médica & Direito de Imagem</span>
+                  <span class="theme-card-desc">Análise do Código de Ética do Estudante de Medicina, direito de imagem de pacientes e sigilo digital.</span>
+                </div>
+              </div>
+              
+              <div class="theme-checkbox-card">
+                <input type="checkbox" name="theme" value="Prevenção e Posvenção do Comportamento Suicida" id="t4">
+                <div class="theme-card-content">
+                  <span class="theme-card-title">Prevenção do Suicídio & Carreira Médica</span>
+                  <span class="theme-card-desc">Sinais de alerta de ideação suicida, avaliação de risco clínico e saúde mental do estudante/médico.</span>
+                </div>
+              </div>
+              
+              <div class="theme-checkbox-card">
+                <input type="checkbox" name="theme" value="Ciclo Vital (Gestação à Velhice e Morte)" id="t5">
+                <div class="theme-card-content">
+                  <span class="theme-card-title">Ciclo Vital (Gestação a Velhice/Morte)</span>
+                  <span class="theme-card-desc">Desafios psicossociais, marcos do desenvolvimento, individuação e luto nas diferentes fases do ciclo.</span>
+                </div>
+              </div>
+              
+              <div class="theme-checkbox-card">
+                <input type="checkbox" name="theme" value="Fatores de Risco (Violência, Álcool e Outras Drogas)" id="t6">
+                <div class="theme-card-content">
+                  <span class="theme-card-title">Fatores de Risco (Violência & Drogas)</span>
+                  <span class="theme-card-desc">Manejo de casos de violência doméstica/interpessoal, resposta ao trauma e abuso de substâncias (estágios de mudança).</span>
+                </div>
+              </div>
+
+              <div class="theme-checkbox-card">
+                <input type="checkbox" name="theme" value="Fatores de Proteção (Ritmo Biológico, Relações e Espiritualidade)" id="t7">
+                <div class="theme-card-content">
+                  <span class="theme-card-title">Fatores de Proteção & Resiliência</span>
+                  <span class="theme-card-desc">Regulação do ritmo circadiano (sono), suporte social (relações), anamnese espiritual (modelo FICA) e exercício.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Radio pill layout for selecting count of questions -->
+          <div class="config-group">
+            <label class="config-label">Quantidade de Questões</label>
+            <div class="radio-button-row">
+              <label class="radio-pill">
+                <input type="radio" name="qcount" value="1">
+                <span class="radio-pill-design">1 Caso</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="qcount" value="3" checked>
+                <span class="radio-pill-design">3 Casos</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="qcount" value="5">
+                <span class="radio-pill-design">5 Casos</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="qcount" value="all">
+                <span class="radio-pill-design">Ver Todas</span>
+              </label>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-lg); justify-content: flex-end;">
+            <button class="btn btn-secondary" onclick="showPage('welcome')">Voltar</button>
+            <button class="btn btn-primary" onclick="generateQuiz()">Gerar Simulado</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 3. ACTIVE SIMULATOR PAGE ==================== -->
+      <section id="simulator" class="page-section">
+        <div class="paper-card">
+          
+          <!-- TOP PROGRESS NAV INDICATOR -->
+          <div class="quiz-navigation">
+            <button class="btn btn-sm btn-secondary" id="btn-prev" onclick="prevQuestion()" disabled>&larr; Anterior</button>
+            
+            <div class="quiz-progress-bar">
+              <div id="progress-fill" class="quiz-progress-fill"></div>
+            </div>
+            
+            <span class="quiz-step-indicator">Caso <span id="nav-current">1</span> de <span id="nav-total">3</span></span>
+          </div>
+          
+          <!-- SCENARIO CARD CONTAINER -->
+          <div id="scenario-container" class="scenario-paper">
+            <span id="q-theme" class="scenario-theme-tag">Tópico</span>
+            <h3 id="q-title" class="scenario-title">Caso Clínico</h3>
+            <p id="q-scenario" class="scenario-text">Carregando caso clínico...</p>
+          </div>
+          
+          <!-- MEDICAL CLINICAL CHART TEXTAREA WRAPPER -->
+          <div class="clinical-chart-wrap">
+            <div class="clinical-chart-label">Evolução de Caso</div>
+            <textarea id="q-textarea" class="clinical-chart-textarea" placeholder="Redija aqui sua resposta dissertativa analítica e conduta clínica recomendada..." oninput="handleAnswerInput(this.value)"></textarea>
+          </div>
+          
+          <!-- AUTO-SAVE STATUS NOTIFIER -->
+          <div id="save-status" class="clinical-chart-status">
+            <span>💾 Rascunho salvo com sucesso no navegador.</span>
+          </div>
+          
+          <!-- ACTION CONTROLS BUTTONS -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--spacing-lg); flex-wrap: wrap; gap: 12px;">
+            <button class="btn btn-terracotta" id="btn-show-rubric" onclick="revealRubric()">
+              📋 Ver Critérios de Avaliação / Gabarito
+            </button>
+            <div style="flex-grow: 1;"></div>
+            <button class="btn btn-secondary" onclick="restartQuiz()">Desistir</button>
+            <button class="btn btn-primary" id="btn-next" onclick="nextQuestion()">
+              <span>Próxima</span> &rarr;
+            </button>
+          </div>
+          
+          <!-- PROFESSOR RUBRIC REVEAL CARD -->
+          <div id="rubric-panel" class="rubric-panel">
+            <div class="rubric-title">
+              <span>📋 Critérios de Avaliação (Gabarito Orientador)</span>
+            </div>
+            <p id="rubric-text" class="rubric-text">Gabarito...</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== 4. SUMMARY / REVIEW PAGE ==================== -->
+      <section id="review" class="page-section">
+        <div class="paper-card">
+          <h2 class="section-title">Resumo do Simulado Resolvido</h2>
+          <p class="section-subtitle">Autoavaliação das respostas e critérios pedagógicos esperados.</p>
+          
+          <!-- CONTAINER GENERATED ACCORDING TO USER ACTIONS -->
+          <div id="review-container" style="margin: var(--spacing-lg) 0;">
+            <!-- Appended questions cards here -->
+          </div>
+          
+          <!-- ACTIONS BAR -->
+          <div style="display: flex; gap: var(--spacing-sm); justify-content: flex-end; margin-top: var(--spacing-lg);" class="btn-group">
+            <button class="btn btn-secondary" onclick="restartQuiz()">Iniciar Novo Simulado</button>
+            <button class="btn btn-primary" onclick="printResults()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 4px;"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2m-12 0h10v4H6v-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Exportar para PDF / Imprimir
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 5. HIDDEN TEACHER PANEL ==================== -->
+      <section id="admin-panel" class="paper-card admin-panel-card" style="display: none;">
+        <h3 class="admin-title">Área do Docente: Codificador de Novas Questões</h3>
+        <p class="diario-item-desc" style="font-size: 0.8rem; line-height: 1.45; margin-bottom: 20px; color: var(--color-text-secondary);">
+          Utilize esta ferramenta para incluir suas provas de 10 questões no banco de dados. Escreva as questões em formato aberto abaixo e copie o código criptografado Base64 gerado para colar no arquivo de configuração `questions.js`. Isso impede que os alunos vejam as provas antecipadamente lendo o código do site.
+        </p>
+        
+        <div class="admin-input-group">
+          <label for="admin-theme">Tema da Questão</label>
+          <select id="admin-theme" class="admin-input-field">
+            <option value="Modelos de Mente & Relação Médico-Paciente (Transferência, Defesas)">Modelos de Mente & Relação Médico-Paciente (Transferência, Defesas)</option>
+            <option value="Cognição, Emoção e Comportamento">Cognição, Emoção e Comportamento</option>
+            <option value="Ética Médica, Estudante e Direito de Imagem">Ética Médica, Estudante e Direito de Imagem</option>
+            <option value="Prevenção e Posvenção do Comportamento Suicida">Prevenção e Posvenção do Comportamento Suicida</option>
+            <option value="Ciclo Vital (Gestação à Velhice e Morte)">Ciclo Vital (Gestação à Velhice e Morte)</option>
+            <option value="Fatores de Risco (Violência, Álcool e Outras Drogas)">Fatores de Risco (Violência, Álcool e Outras Drogas)</option>
+            <option value="Fatores de Proteção (Ritmo Biológico, Relações e Espiritualidade)">Fatores de Proteção (Ritmo Biológico, Relações e Espiritualidade)</option>
+          </select>
+        </div>
+        
+        <div class="admin-input-group">
+          <label for="admin-title-q">Título da Questão</label>
+          <input type="text" id="admin-title-q" class="admin-input-field" placeholder="Ex: Caso 1: Vínculo no Adoecimento">
+        </div>
+        
+        <div class="admin-input-group">
+          <label for="admin-scenario">Caso Clínico (Dissertativo)</label>
+          <textarea id="admin-scenario" class="admin-input-field admin-textarea-field" placeholder="Descreva aqui o caso clínico detalhado e a pergunta formulada aos alunos..."></textarea>
+        </div>
+        
+        <div class="admin-input-group">
+          <label for="admin-rubric">Critérios de Avaliação (Gabarito de Autoavaliação)</label>
+          <textarea id="admin-rubric" class="admin-input-field admin-textarea-field" placeholder="Escreva o gabarito detalhado com os pontos obrigatórios da correção..."></textarea>
+        </div>
+        
+        <button class="btn btn-terracotta btn-sm" onclick="generateObfuscatedCode()">Gerar Código Criptografado</button>
+        
+        <div id="admin-output-container" style="margin-top: 20px; display: none;">
+          <label style="font-weight: 700; font-size: 0.8rem; color: var(--color-terracotta-dark);">Código para colar em `questions.js`:</label>
+          <div id="admin-output" class="admin-output-box"></div>
+          <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 5px;">Copie a linha acima inteira e cole dentro da lista `QUESTION_BANK` no seu arquivo `questions.js`.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SYSTEM FOOTER -->
+    <footer class="app-footer">
+      <div>© 2026 FAMED UFRGS & HCPA. Todos os direitos reservados.</div>
+      <div class="footer-links">
+        <a href="#" onclick="restartQuiz(); return false;">Início</a>
+        <span>·</span>
+        <a href="#" onclick="if(confirm('Limpar progresso e recomeçar do zero?')) { dismissSession(); restartQuiz(); }; return false;">Limpar Histórico</a>
+        <span>·</span>
+        <span class="admin-badge" onclick="toggleAdminPanel()">Área do Docente</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- APPLICATION SCRIPTS -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

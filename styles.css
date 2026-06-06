@@ -1,0 +1,818 @@
+/* ==========================================================================
+   SIMULADOR DE PSICOLOGIA MÉDICA I - SISTEMA DE ESTILOS
+   Aesthetics: Watercolor Academic, FAMED/UFRGS Neoclassic Dome & Cream Paper
+   ========================================================================== */
+
+/* Google Fonts - Lora (Serif for headers) & Inter (Sans-serif for body) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+:root {
+  /* Color Palette based on the FAMED Dome watercolor drawing */
+  --color-bg-paper: #f6f3ed;          /* Cream textured watercolor paper */
+  --color-card-paper: #ffffff;        /* Clean paper sheet */
+  --color-card-accent: #edf2f3;       /* Very soft blue-teal wash */
+  
+  /* Neoclassic UFRGS Medicine Teal/Blue-Green */
+  --color-sage: #2a6a70;              /* Main watercolor blue-green */
+  --color-sage-glow: rgba(42, 106, 112, 0.08);
+  --color-sage-dark: #164146;
+  --color-sage-light: #e0e9eb;        /* Soft teal wash */
+  
+  /* Terracotta & Lavender (Historical building walls and shading) */
+  --color-terracotta: #b45740;        /* Terracotta roof/accent from watercolor */
+  --color-terracotta-glow: rgba(180, 87, 64, 0.08);
+  --color-terracotta-dark: #823a27;
+  --color-terracotta-light: #f5ecea;
+  
+  --color-lavender: #827196;          /* Shading lavender color from drawing */
+  --color-lavender-light: #eeddf3;
+  
+  /* State Colors */
+  --color-success: #2e7d32;
+  --color-warning: #b7791f;
+  --color-danger: #c53030;
+  --color-info: #2a6a70;
+  
+  /* Typography Colors */
+  --color-text-main: #242c35;         /* Deep slate charcoal */
+  --color-text-secondary: #4a5763;    /* Muted grey-blue */
+  --color-text-muted: #6e7a85;
+  --color-border: #e2dcd2;            /* Creamy organic border */
+  --color-border-sage: rgba(42, 106, 112, 0.15);
+
+  /* Fonts */
+  --font-title: 'Lora', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3.5rem;
+
+  /* Borders & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-organic: 0 10px 25px -5px rgba(42, 106, 112, 0.04), 
+                    0 8px 16px -6px rgba(0, 0, 0, 0.02),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.01);
+  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-bg-paper);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(42, 106, 112, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 90% 90%, rgba(180, 87, 64, 0.03) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(246, 243, 237, 0.9) 0%, rgba(240, 235, 226, 0.9) 100%);
+  background-attachment: fixed;
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-sage);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--color-terracotta);
+  text-decoration-style: solid;
+}
+
+/* Main Layout Container */
+.app-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Header styling with watercolor banner look */
+.app-header {
+  padding: var(--spacing-lg) 0 var(--spacing-md) 0;
+  border-bottom: 2px solid var(--color-sage-light);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brand-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Framed circular badge showing the beautiful watercolor dome painting */
+.brand-badge {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid var(--color-sage);
+  padding: 3px;
+  background: var(--color-bg-paper);
+  box-shadow: 0 4px 15px rgba(42, 106, 112, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: var(--spacing-xs);
+  transition: var(--transition-smooth);
+}
+
+.brand-badge:hover {
+  transform: scale(1.03) rotate(2deg);
+  border-color: var(--color-terracotta);
+  box-shadow: 0 6px 20px rgba(180, 87, 64, 0.15);
+}
+
+.brand-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: contrast(1.05) saturate(1.05);
+}
+
+.brand-title {
+  font-family: var(--font-title);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-sage-dark);
+  letter-spacing: -0.5px;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-top: -2px;
+}
+
+/* Page transitions */
+.app-content {
+  flex-grow: 1;
+  padding-bottom: var(--spacing-xl);
+}
+
+.page-section {
+  display: none;
+  animation: pageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-section.active {
+  display: block;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Paper-style Cards */
+.paper-card {
+  background: var(--color-card-paper);
+  border: 1.5px solid var(--color-border);
+  border-color: #e6e2da;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.paper-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-organic);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.paper-card:hover {
+  transform: translateY(-1px);
+  border-color: #d1cbc0;
+  box-shadow: 0 6px 24px rgba(42, 106, 112, 0.04), 0 2px 8px rgba(0, 0, 0, 0.01);
+}
+
+/* Titles */
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  color: var(--color-sage-dark);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.section-title {
+  font-size: 1.85rem;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Welcome page decoration grid */
+.welcome-header {
+  border-bottom: 1px dashed rgba(42, 106, 112, 0.15);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.welcome-decor {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-md) 0;
+}
+
+.welcome-decor svg {
+  max-width: 100%;
+  height: 60px;
+}
+
+/* Forms & Checkbox Groups */
+.config-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.config-label {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-sage-dark);
+  margin-bottom: var(--spacing-sm);
+  border-left: 3px solid var(--color-sage);
+  padding-left: var(--spacing-xs);
+}
+
+/* Theme selector buttons styled as watercolor cards */
+.theme-selector-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+@media (min-width: 600px) {
+  .theme-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.theme-checkbox-card {
+  position: relative;
+  background: var(--color-card-paper);
+  border: 1.5px solid #e2dcd2;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: var(--transition-smooth);
+}
+
+.theme-checkbox-card:hover {
+  border-color: var(--color-sage);
+  background-color: var(--color-sage-light);
+}
+
+.theme-checkbox-card.selected {
+  border-color: var(--color-sage);
+  background-color: var(--color-sage-light);
+  box-shadow: 0 0 0 1px var(--color-sage);
+}
+
+.theme-checkbox-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid var(--color-text-muted);
+  accent-color: var(--color-sage);
+  cursor: pointer;
+  margin-top: 3px;
+}
+
+.theme-card-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.theme-card-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-sage-dark);
+}
+
+.theme-card-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* Radio button row for question count */
+.radio-button-row {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.radio-pill {
+  position: relative;
+  cursor: pointer;
+  flex: 1;
+  min-width: 80px;
+}
+
+.radio-pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.radio-pill-design {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: var(--color-card-paper);
+  border: 1.5px solid #e2dcd2;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  color: var(--color-text-secondary);
+}
+
+.radio-pill:hover .radio-pill-design {
+  border-color: var(--color-sage);
+  color: var(--color-sage);
+}
+
+.radio-pill input[type="radio"]:checked + .radio-pill-design {
+  background-color: var(--color-sage);
+  border-color: var(--color-sage);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(42, 106, 112, 0.25);
+}
+
+/* Interactive Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--color-card-paper);
+  border: 1.5px solid var(--color-sage);
+  color: var(--color-sage);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.btn:hover {
+  background: var(--color-sage-light);
+  color: var(--color-sage-dark);
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--color-sage);
+  border-color: var(--color-sage);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(42, 106, 112, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--color-sage-dark);
+  border-color: var(--color-sage-dark);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(42, 106, 112, 0.3);
+}
+
+.btn-terracotta {
+  background: var(--color-terracotta);
+  border-color: var(--color-terracotta);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(180, 87, 64, 0.2);
+}
+
+.btn-terracotta:hover {
+  background: var(--color-terracotta-dark);
+  border-color: var(--color-terracotta-dark);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  border-color: #cbd5e1;
+  color: var(--color-text-secondary);
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  color: var(--color-text-main);
+  border-color: #94a3b8;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+/* Navigation inside Quiz */
+.quiz-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background-color: var(--color-sage-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(42, 106, 112, 0.1);
+}
+
+.quiz-progress-bar {
+  flex-grow: 1;
+  margin: 0 var(--spacing-md);
+  height: 8px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-sage) 0%, var(--color-terracotta) 100%);
+  border-radius: 4px;
+  transition: width 0.4s ease-in-out;
+}
+
+.quiz-step-indicator {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-sage-dark);
+  font-family: var(--font-title);
+  white-space: nowrap;
+}
+
+/* Clinical Scenario Paper container */
+.scenario-paper {
+  background-color: var(--color-card-accent);
+  border-left: 4px solid var(--color-sage);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+.scenario-theme-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-terracotta);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+}
+
+.scenario-title {
+  font-size: 1.35rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-sage-dark);
+}
+
+.scenario-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  text-align: justify;
+}
+
+/* Clinical Chart Ruled Paper Textarea */
+.clinical-chart-wrap {
+  position: relative;
+  background-color: #fff;
+  border: 1.5px solid #d1cbc0;
+  border-radius: var(--radius-sm);
+  padding: 15px 15px 15px 45px;
+  box-shadow: var(--shadow-inset);
+  margin-bottom: var(--spacing-md);
+  background-image: 
+    linear-gradient(rgba(0, 100, 250, 0.06) 1px, transparent 1px);
+  background-size: 100% 28px;
+  background-position: 0 4px;
+}
+
+.clinical-chart-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 35px;
+  width: 1px;
+  border-left: 1px solid rgba(220, 50, 50, 0.35);
+}
+
+.clinical-chart-label {
+  position: absolute;
+  top: 8px; left: 10px;
+  font-family: var(--font-title);
+  font-size: 0.65rem;
+  color: rgba(220, 50, 50, 0.6);
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: 90px;
+}
+
+.clinical-chart-textarea {
+  width: 100%;
+  min-height: 224px;
+  background: transparent;
+  border: none;
+  resize: vertical;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 28px;
+  color: #1e293b;
+  padding: 0;
+  margin: 0;
+}
+
+.clinical-chart-status {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: -8px;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Professor Rubric Correction Panel (Revealed on-demand) */
+.rubric-panel {
+  display: none;
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid #ebd4cb;
+  background-color: var(--color-terracotta-light);
+  animation: slideDown 0.35s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rubric-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  color: var(--color-terracotta-dark);
+  margin-bottom: var(--spacing-xs);
+  border-bottom: 1.5px dashed rgba(180, 87, 64, 0.25);
+  padding-bottom: 6px;
+}
+
+.rubric-text {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-text-main);
+  white-space: pre-wrap;
+}
+
+/* Review / Summary page list of answers */
+.review-item {
+  border-bottom: 2px dashed var(--color-border);
+  padding-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.review-question-header {
+  margin-bottom: var(--spacing-sm);
+}
+
+.review-question-title {
+  font-size: 1.15rem;
+  color: var(--color-sage-dark);
+}
+
+.review-answer-box {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  white-space: pre-wrap;
+  margin-bottom: var(--spacing-md);
+}
+
+.review-empty-answer {
+  color: var(--color-danger);
+  font-style: italic;
+}
+
+/* Footer style */
+.app-footer {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-md) 0;
+  border-top: 1px dashed rgba(42, 106, 112, 0.15);
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: 6px;
+}
+
+/* Admin/Professor Tool Panel styling */
+.admin-badge {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: pointer;
+}
+
+.admin-panel-card {
+  margin-top: var(--spacing-xl);
+  border-color: #ebd4cb;
+  background-color: #fdfaf9;
+}
+
+.admin-title {
+  color: var(--color-terracotta-dark);
+  border-bottom: 2px solid var(--color-terracotta-light);
+  padding-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.admin-input-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.admin-input-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.admin-input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  background-color: #fff;
+  transition: var(--transition-smooth);
+}
+
+.admin-input-field:focus {
+  border-color: var(--color-terracotta);
+}
+
+.admin-textarea-field {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.admin-output-box {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #334155;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Restore session banner */
+.restore-banner {
+  background-color: var(--color-sage-light);
+  border: 1.5px solid rgba(42, 106, 112, 0.2);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.restore-banner-text {
+  font-size: 0.88rem;
+  color: var(--color-sage-dark);
+}
+
+/* Printable styles for PDF exporting */
+@media print {
+  body {
+    background-color: #ffffff;
+    background-image: none;
+    color: #000000;
+  }
+  .app-container {
+    max-width: 100%;
+    padding: 0;
+  }
+  .app-header, .quiz-navigation, .app-footer, .btn, .btn-group, .rubric-panel button, .admin-panel-card {
+    display: none !important;
+  }
+  .page-section {
+    display: none !important;
+  }
+  #review {
+    display: block !important;
+  }
+  .paper-card {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .review-item {
+    page-break-inside: avoid;
+  }
+  .review-answer-box {
+    border: 1px solid #000000;
+    background: #ffffff;
+  }
+}
