@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary SEO Meta Tags -->
-  <title>Simulador de Psicologia Médica I | FAMED UFRGS & HCPA</title>
-  <meta name="title" content="Simulador de Psicologia Médica I | FAMED UFRGS & HCPA">
-  <meta name="description" content="Plataforma de autoavaliação e estudos práticos em Psicologia Médica baseada em casos clínicos anteriores. Privado e seguro.">
+  <title>Simulador da Vida Real | Psicologia Médica I (FAMED UFRGS & HCPA)</title>
+  <meta name="title" content="Simulador da Vida Real | Psicologia Médica I (FAMED UFRGS & HCPA)">
+  <meta name="description" content="A Psicologia Médica aplicada a situações que ocorrem todos os dias. Plataforma de autoavaliação e estudos práticos baseados em situações da vida real da prática médica.">
   <meta name="author" content="Profa. Simone Hauck">
   
   <!-- Favicon & Stylesheet -->
@@ -26,7 +26,7 @@
           <img src="famed_dome.jpg" alt="FAMED UFRGS">
         </div>
         <div class="brand-text">
-          <span class="brand-title">Psicologia Médica I</span>
+          <span class="brand-title">Simulador da Vida Real</span>
           <span class="brand-subtitle">MED 8005 · FAMED UFRGS · HCPA</span>
         </div>
       </a>
@@ -50,24 +50,24 @@
       <section id="welcome" class="page-section active">
         <div class="paper-card" style="text-align: center;">
           <div class="welcome-header">
-            <h2 class="section-title">Bem-vindo ao Assistente de Estudos Clínicos</h2>
-            <p class="section-subtitle">Preparação autônoma para avaliações baseada em cenários práticos reais da Psicologia Médica.</p>
+            <h2 class="section-title">Bem-vindo ao Simulador da Vida Real</h2>
+            <p class="section-subtitle">A Psicologia Médica aplicada a situações cotidianas, relacionais e preventivas que ocorrem todos os dias.</p>
           </div>
           
           <div style="text-align: left; margin: var(--spacing-lg) 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 12px; color: var(--color-text-secondary);">
-            <p>Este simulador foi desenvolvido para auxiliar os alunos do 3º semestre da **FAMED/UFRGS** a exercitarem o raciocínio clínico-psicológico exigido nas avaliações regulares da disciplina.</p>
+            <p>Este simulador foi desenvolvido para auxiliar os alunos do 3º semestre da **FAMED/UFRGS** a exercitarem o raciocínio preventivo, ético e relacional exigido nas avaliações regulares da disciplina.</p>
             
             <p><strong>Como funciona:</strong></p>
             <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
-              <li>📋 <strong>Sorteio Personalizado:</strong> Você escolhe os tópicos da matéria que deseja revisar e o número de questões.</li>
-              <li>✍️ <strong>Prontuário de Evolução:</strong> Redija suas condutas e respostas dissertativas em uma tela que simula uma folha de evolução clínica. Suas respostas são salvas automaticamente a cada caractere digitado.</li>
-              <li>🔍 <strong>Autoavaliação Imediata:</strong> Após responder, você pode revelar os critérios de correção esperados pela banca docente para autoavaliar suas respostas em tempo real.</li>
+              <li>📋 <strong>Sorteio Personalizado:</strong> Você escolhe as situações cotidianas que deseja revisar e a quantidade de cenários.</li>
+              <li>✍️ <strong>Diário de Conduta:</strong> Redija suas análises e respostas em uma tela que simula uma folha de evolução de prontuário, registrando as abordagens preventivas ideais. Suas respostas são salvas automaticamente a cada caractere digitado.</li>
+              <li>🔍 <strong>Autoavaliação Imediata:</strong> Após responder, você pode revelar os critérios esperados pela banca docente para autoavaliar suas condutas em tempo real.</li>
               <li>💾 <strong>Privacidade Absoluta:</strong> Nenhum dado é enviado a servidores externos. Suas interações, histórico e respostas são armazenados estritamente na memória local do seu navegador, garantindo privacidade total nos seus estudos.</li>
             </ul>
           </div>
           
           <div style="margin-top: var(--spacing-lg);">
-            <button class="btn btn-primary" onclick="showPage('setup')">Iniciar Simulado Personalizado</button>
+            <button class="btn btn-primary" onclick="showPage('setup')">Iniciar Simulado de Situações</button>
           </div>
         </div>
       </section>
@@ -79,8 +79,8 @@
           
           <!-- Themes selector checkbox cards -->
           <div class="config-group">
-            <label class="config-label">Selecione os Tópicos de Estudo</label>
-            <p style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 12px; margin-top: -6px;">Deixe em branco para sortear questões de todos os temas do banco.</p>
+            <label class="config-label">Selecione as Situações para Revisar</label>
+            <p style="font-size: 0.8rem; color: var(--color-text-secondary); margin-bottom: 12px; margin-top: -6px;">Deixe em branco para sortear temas de todo o programa da disciplina.</p>
             
             <div class="theme-selector-grid">
               <div class="theme-checkbox-card">
@@ -127,7 +127,7 @@
                 <input type="checkbox" name="theme" value="Fatores de Risco (Violência, Álcool e Outras Drogas)" id="t6">
                 <div class="theme-card-content">
                   <span class="theme-card-title">Fatores de Risco (Violência & Drogas)</span>
-                  <span class="theme-card-desc">Manejo de casos de violência doméstica/interpessoal, resposta ao trauma e abuso de substâncias (estágios de mudança).</span>
+                  <span class="theme-card-desc">Manejo de situações de violência doméstica/interpessoal, resposta ao trauma e abuso de substâncias (estágios de mudança).</span>
                 </div>
               </div>
 
@@ -143,19 +143,19 @@
           
           <!-- Radio pill layout for selecting count of questions -->
           <div class="config-group">
-            <label class="config-label">Quantidade de Questões</label>
+            <label class="config-label">Quantidade de Cenários</label>
             <div class="radio-button-row">
               <label class="radio-pill">
                 <input type="radio" name="qcount" value="1">
-                <span class="radio-pill-design">1 Caso</span>
+                <span class="radio-pill-design">1 Situação</span>
               </label>
               <label class="radio-pill">
                 <input type="radio" name="qcount" value="3" checked>
-                <span class="radio-pill-design">3 Casos</span>
+                <span class="radio-pill-design">3 Situações</span>
               </label>
               <label class="radio-pill">
                 <input type="radio" name="qcount" value="5">
-                <span class="radio-pill-design">5 Casos</span>
+                <span class="radio-pill-design">5 Situações</span>
               </label>
               <label class="radio-pill">
                 <input type="radio" name="qcount" value="all">
@@ -183,20 +183,20 @@
               <div id="progress-fill" class="quiz-progress-fill"></div>
             </div>
             
-            <span class="quiz-step-indicator">Caso <span id="nav-current">1</span> de <span id="nav-total">3</span></span>
+            <span class="quiz-step-indicator">Situação <span id="nav-current">1</span> de <span id="nav-total">3</span></span>
           </div>
           
           <!-- SCENARIO CARD CONTAINER -->
           <div id="scenario-container" class="scenario-paper">
             <span id="q-theme" class="scenario-theme-tag">Tópico</span>
-            <h3 id="q-title" class="scenario-title">Caso Clínico</h3>
-            <p id="q-scenario" class="scenario-text">Carregando caso clínico...</p>
+            <h3 id="q-title" class="scenario-title">Situação de Vida Real</h3>
+            <p id="q-scenario" class="scenario-text">Carregando situação...</p>
           </div>
           
           <!-- MEDICAL CLINICAL CHART TEXTAREA WRAPPER -->
           <div class="clinical-chart-wrap">
-            <div class="clinical-chart-label">Evolução de Caso</div>
-            <textarea id="q-textarea" class="clinical-chart-textarea" placeholder="Redija aqui sua resposta dissertativa analítica e conduta clínica recomendada..." oninput="handleAnswerInput(this.value)"></textarea>
+            <div class="clinical-chart-label">Análise & Conduta</div>
+            <textarea id="q-textarea" class="clinical-chart-textarea" placeholder="Descreva aqui sua análise e a conduta preventiva recomendada diante da situação..." oninput="handleAnswerInput(this.value)"></textarea>
           </div>
           
           <!-- AUTO-SAVE STATUS NOTIFIER -->
@@ -207,7 +207,7 @@
           <!-- ACTION CONTROLS BUTTONS -->
           <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--spacing-lg); flex-wrap: wrap; gap: 12px;">
             <button class="btn btn-terracotta" id="btn-show-rubric" onclick="revealRubric()">
-              📋 Ver Critérios de Avaliação / Gabarito
+              📋 Ver Critérios de Autoavaliação / Diretrizes
             </button>
             <div style="flex-grow: 1;"></div>
             <button class="btn btn-secondary" onclick="restartQuiz()">Desistir</button>
@@ -219,9 +219,9 @@
           <!-- PROFESSOR RUBRIC REVEAL CARD -->
           <div id="rubric-panel" class="rubric-panel">
             <div class="rubric-title">
-              <span>📋 Critérios de Avaliação (Gabarito Orientador)</span>
+              <span>📋 Critérios de Autoavaliação (Diretrizes Esperadas)</span>
             </div>
-            <p id="rubric-text" class="rubric-text">Gabarito...</p>
+            <p id="rubric-text" class="rubric-text">Diretrizes...</p>
           </div>
 
         </div>
@@ -230,8 +230,8 @@
       <!-- ==================== 4. SUMMARY / REVIEW PAGE ==================== -->
       <section id="review" class="page-section">
         <div class="paper-card">
-          <h2 class="section-title">Resumo do Simulado Resolvido</h2>
-          <p class="section-subtitle">Autoavaliação das respostas e critérios pedagógicos esperados.</p>
+          <h2 class="section-title">Resumo do Simulado de Situações</h2>
+          <p class="section-subtitle">Autoavaliação das respostas e critérios pedagógicos recomendados.</p>
           
           <!-- CONTAINER GENERATED ACCORDING TO USER ACTIONS -->
           <div id="review-container" style="margin: var(--spacing-lg) 0;">
@@ -251,45 +251,66 @@
 
       <!-- ==================== 5. HIDDEN TEACHER PANEL ==================== -->
       <section id="admin-panel" class="paper-card admin-panel-card" style="display: none;">
-        <h3 class="admin-title">Área do Docente: Codificador de Novas Questões</h3>
-        <p class="diario-item-desc" style="font-size: 0.8rem; line-height: 1.45; margin-bottom: 20px; color: var(--color-text-secondary);">
-          Utilize esta ferramenta para incluir suas provas de 10 questões no banco de dados. Escreva as questões em formato aberto abaixo e copie o código criptografado Base64 gerado para colar no arquivo de configuração `questions.js`. Isso impede que os alunos vejam as provas antecipadamente lendo o código do site.
-        </p>
+        <h3 class="admin-title">Área do Docente: Codificador de Novas Situações</h3>
         
-        <div class="admin-input-group">
-          <label for="admin-theme">Tema da Questão</label>
-          <select id="admin-theme" class="admin-input-field">
-            <option value="Modelos de Mente & Relação Médico-Paciente (Transferência, Defesas)">Modelos de Mente & Relação Médico-Paciente (Transferência, Defesas)</option>
-            <option value="Cognição, Emoção e Comportamento">Cognição, Emoção e Comportamento</option>
-            <option value="Ética Médica, Estudante e Direito de Imagem">Ética Médica, Estudante e Direito de Imagem</option>
-            <option value="Prevenção e Posvenção do Comportamento Suicida">Prevenção e Posvenção do Comportamento Suicida</option>
-            <option value="Ciclo Vital (Gestação à Velhice e Morte)">Ciclo Vital (Gestação à Velhice e Morte)</option>
-            <option value="Fatores de Risco (Violência, Álcool e Outras Drogas)">Fatores de Risco (Violência, Álcool e Outras Drogas)</option>
-            <option value="Fatores de Proteção (Ritmo Biológico, Relações e Espiritualidade)">Fatores de Proteção (Ritmo Biológico, Relações e Espiritualidade)</option>
-          </select>
+        <!-- Professor Authentication -->
+        <div id="admin-auth-box" style="margin-bottom: 15px;">
+          <p class="diario-item-desc" style="font-size: 0.8rem; line-height: 1.45; margin-bottom: 15px; color: var(--color-text-secondary);">
+            Esta é uma área restrita para os professores da MED 8005. Insira seu e-mail institucional e a senha de acesso para liberar a ferramenta de codificação de novas situações cotidianas.
+          </p>
+          <div class="admin-input-group">
+            <label for="admin-email">E-mail Institucional (@hcpa.edu.br ou @ufrgs.br) *</label>
+            <input type="email" id="admin-email" class="admin-input-field" placeholder="seu-email@hcpa.edu.br">
+          </div>
+          <div class="admin-input-group" style="margin-bottom: 20px;">
+            <label for="admin-password">Senha de Acesso Docente *</label>
+            <input type="password" id="admin-password" class="admin-input-field" placeholder="Digite a senha compartilhada">
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="authenticateAdmin()">Acessar Ferramentas</button>
+          <p id="admin-auth-error" style="color: var(--color-danger); font-size: 0.75rem; font-weight: 600; margin-top: 10px; display: none;">E-mail inválido ou senha incorreta.</p>
         </div>
-        
-        <div class="admin-input-group">
-          <label for="admin-title-q">Título da Questão</label>
-          <input type="text" id="admin-title-q" class="admin-input-field" placeholder="Ex: Caso 1: Vínculo no Adoecimento">
-        </div>
-        
-        <div class="admin-input-group">
-          <label for="admin-scenario">Caso Clínico (Dissertativo)</label>
-          <textarea id="admin-scenario" class="admin-input-field admin-textarea-field" placeholder="Descreva aqui o caso clínico detalhado e a pergunta formulada aos alunos..."></textarea>
-        </div>
-        
-        <div class="admin-input-group">
-          <label for="admin-rubric">Critérios de Avaliação (Gabarito de Autoavaliação)</label>
-          <textarea id="admin-rubric" class="admin-input-field admin-textarea-field" placeholder="Escreva o gabarito detalhado com os pontos obrigatórios da correção..."></textarea>
-        </div>
-        
-        <button class="btn btn-terracotta btn-sm" onclick="generateObfuscatedCode()">Gerar Código Criptografado</button>
-        
-        <div id="admin-output-container" style="margin-top: 20px; display: none;">
-          <label style="font-weight: 700; font-size: 0.8rem; color: var(--color-terracotta-dark);">Código para colar em `questions.js`:</label>
-          <div id="admin-output" class="admin-output-box"></div>
-          <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 5px;">Copie a linha acima inteira e cole dentro da lista `QUESTION_BANK` no seu arquivo `questions.js`.</p>
+
+        <!-- The actual generator form (hidden by default until auth) -->
+        <div id="admin-generator-box" style="display: none;">
+          <p class="diario-item-desc" style="font-size: 0.8rem; line-height: 1.45; margin-bottom: 20px; color: var(--color-text-secondary);">
+            Escreva a situação em formato aberto abaixo e clique para gerar o código criptografado. O sistema registrará a autoria a partir do e-mail de acesso.
+          </p>
+          
+          <div class="admin-input-group">
+            <label for="admin-theme">Tema da Situação</label>
+            <select id="admin-theme" class="admin-input-field">
+              <option value="Modelos de Mente & Relação Médico-Paciente (Transferência, Defesas)">Modelos de Mente & Relação Médico-Paciente (Transferência, Defesas)</option>
+              <option value="Cognição, Emoção e Comportamento">Cognição, Emoção e Comportamento</option>
+              <option value="Ética Médica, Estudante e Direito de Imagem">Ética Médica, Estudante e Direito de Imagem</option>
+              <option value="Prevenção e Posvenção do Comportamento Suicida">Prevenção e Posvenção do Comportamento Suicida</option>
+              <option value="Ciclo Vital (Gestação à Velhice e Morte)">Ciclo Vital (Gestação à Velhice e Morte)</option>
+              <option value="Fatores de Risco (Violência, Álcool e Outras Drogas)">Fatores de Risco (Violência, Álcool e Outras Drogas)</option>
+              <option value="Fatores de Proteção (Ritmo Biológico, Relações e Espiritualidade)">Fatores de Proteção (Ritmo Biológico, Relações e Espiritualidade)</option>
+            </select>
+          </div>
+          
+          <div class="admin-input-group">
+            <label for="admin-title-q">Título da Situação</label>
+            <input type="text" id="admin-title-q" class="admin-input-field" placeholder="Ex: Situação 1: Diálogo e Prevenção">
+          </div>
+          
+          <div class="admin-input-group">
+            <label for="admin-scenario">Descrição da Situação da Vida Real</label>
+            <textarea id="admin-scenario" class="admin-input-field admin-textarea-field" placeholder="Descreva aqui o cenário da vida real e as perguntas norteadoras para os alunos..."></textarea>
+          </div>
+          
+          <div class="admin-input-group">
+            <label for="admin-rubric">Diretrizes de Autoavaliação (Gabarito de Autoavaliação)</label>
+            <textarea id="admin-rubric" class="admin-input-field admin-textarea-field" placeholder="Escreva as diretrizes analíticas com os pontos e conceitos que o aluno deve identificar..."></textarea>
+          </div>
+          
+          <button class="btn btn-terracotta btn-sm" onclick="generateObfuscatedCode()">Gerar Código Criptografado</button>
+          
+          <div id="admin-output-container" style="margin-top: 20px; display: none;">
+            <label style="font-weight: 700; font-size: 0.8rem; color: var(--color-terracotta-dark);">Código para colar em `questions.js`:</label>
+            <div id="admin-output" class="admin-output-box"></div>
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 5px;">Copie a linha acima inteira e cole dentro da lista `QUESTION_BANK` no seu arquivo `questions.js`.</p>
+          </div>
         </div>
       </section>
 
@@ -297,7 +318,8 @@
 
     <!-- SYSTEM FOOTER -->
     <footer class="app-footer">
-      <div>© 2026 FAMED UFRGS & HCPA. Todos os direitos reservados.</div>
+      <div style="margin-bottom: 6px;"><strong>Projeto Piloto desenvolvido pela Profa. Simone Hauck | FAMED UFRGS</strong></div>
+      <div style="margin-bottom: 12px; font-size: 0.76rem; color: var(--color-text-secondary);">Contato: <a href="mailto:shauck@hcpa.edu.br" style="text-decoration: none; color: var(--color-sage); font-weight: 600;">shauck@hcpa.edu.br</a></div>
       <div class="footer-links">
         <a href="#" onclick="restartQuiz(); return false;">Início</a>
         <span>·</span>

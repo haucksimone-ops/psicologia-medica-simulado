@@ -161,7 +161,7 @@ function generateQuiz() {
   }
 
   if (pool.length === 0) {
-    alert("Nenhuma questão disponível para os temas selecionados. Por favor, adicione mais temas.");
+    alert("Nenhuma situação disponível para os temas selecionados. Por favor, adicione mais temas.");
     return;
   }
 
@@ -296,7 +296,7 @@ function finishQuiz() {
     item.innerHTML = `
       <div class="review-question-header">
         <span class="scenario-theme-tag">${q.theme}</span>
-        <h4 class="review-question-title">Questão ${idx + 1}: ${q.title}</h4>
+        <h4 class="review-question-title">Situação ${idx + 1}: ${q.title}</h4>
       </div>
       <div class="scenario-paper" style="padding: 12px 18px; margin-bottom: 12px; font-size: 0.88rem;">
         <p>${decodedScenario}</p>
@@ -331,14 +331,49 @@ function restartQuiz() {
   }
 }
 
-// --- Admin Section toggles ---
+// --- Admin Section State & Authentication ---
+let adminEmail = "";
+
 function toggleAdminPanel() {
   const panel = document.getElementById("admin-panel");
   if (panel.style.display === "none" || !panel.style.display) {
     panel.style.display = "block";
+    
+    // Display appropriate view based on authentication state
+    if (!adminEmail) {
+      document.getElementById("admin-auth-box").style.display = "block";
+      document.getElementById("admin-generator-box").style.display = "none";
+    } else {
+      document.getElementById("admin-auth-box").style.display = "none";
+      document.getElementById("admin-generator-box").style.display = "block";
+    }
+    
     panel.scrollIntoView({ behavior: 'smooth' });
   } else {
     panel.style.display = "none";
+  }
+}
+
+function authenticateAdmin() {
+  const email = document.getElementById("admin-email").value.trim();
+  const password = document.getElementById("admin-password").value.trim();
+  const errorEl = document.getElementById("admin-auth-error");
+  
+  // Validates institutional domains (@hcpa.edu.br or @ufrgs.br)
+  const emailRegex = /^[^\s@]+@(hcpa\.edu\.br|ufrgs\.br)$/i;
+  const isEmailValid = emailRegex.test(email);
+  
+  // Shared password (famed2026)
+  const isPasswordCorrect = (password.toLowerCase() === "famed2026");
+  
+  if (isEmailValid && isPasswordCorrect) {
+    adminEmail = email;
+    errorEl.style.display = "none";
+    document.getElementById("admin-auth-box").style.display = "none";
+    document.getElementById("admin-generator-box").style.display = "block";
+  } else {
+    errorEl.innerText = "E-mail institucional inválido ou senha incorreta (deve ser @hcpa.edu.br ou @ufrgs.br).";
+    errorEl.style.display = "block";
   }
 }
 
@@ -362,7 +397,8 @@ function generateObfuscatedCode() {
     theme: themeInput.trim(),
     title: titleInput.trim(),
     scenario: b64Scenario,
-    rubric: b64Rubric
+    rubric: b64Rubric,
+    author: adminEmail // Registers authorship
   };
   
   const outputBox = document.getElementById("admin-output");
